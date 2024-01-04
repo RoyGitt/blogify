@@ -1,22 +1,23 @@
 import Image from "next/image";
 import styles from "./postUser.module.css";
+import { getUser } from "@/lib/data";
 
-const getUser = async (userId) => {
-  try {
-    const res = await fetch(
-      `https://jsonplaceholder.typicode.com/users${userId}`
-    );
-    if (!res.ok) {
-      throw new Error("Something went wrong");
-    }
-    return res.json();
-  } catch (error) {
-    console.log(error.message);
-  }
-};
+// const getUser = async (userId) => {
+//   try {
+//     const res = await fetch(
+//       `https://jsonplaceholder.typicode.com/users${userId}`
+//     );
+//     if (!res.ok) {
+//       throw new Error("Something went wrong");
+//     }
+//     return res.json();
+//   } catch (error) {
+//     console.log(error.message);
+//   }
+// };
 
 const PostUser = async ({ userId }) => {
-  const user = getUser(userId);
+  const user = await getUser(userId);
 
   return (
     <div className={styles.container}>
