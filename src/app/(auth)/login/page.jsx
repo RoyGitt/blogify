@@ -1,3 +1,6 @@
+import styles from "./login.module.css";
+import LoginForm from "@/components/loginForm/LoginForm";
+
 export const metadata = {
   title: "Sign In",
   description:
@@ -5,6 +8,13 @@ export const metadata = {
 };
 
 const LoginPage = () => {
-  return <div>LoginPage</div>;
+  return (
+    <div className={styles.container}>
+      <div className={styles.wrapper}>
+        <LoginForm />
+      </div>
+    </div>
+  );
 };
+
 export default LoginPage;

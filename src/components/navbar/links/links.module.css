@@ -9,6 +9,12 @@
   cursor: pointer;
   font-weight: bold;
 }
+.login {
+  padding: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 30px;
+}
 
 .menuButton,
 .mobileLinks {
