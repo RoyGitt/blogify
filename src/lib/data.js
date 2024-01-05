@@ -27,7 +27,7 @@ export const getUsers = async (id) => {
   unstable_noStore();
   try {
     await connectDb();
-    return await Post.find();
+    return await User.find();
   } catch (error) {
     console.log(error.message);
     console.log("Failed to fetch the users");
