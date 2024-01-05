@@ -2,22 +2,25 @@ import Image from "next/image";
 import styles from "./blogDetail.module.css";
 import PostUser from "@/components/postUser/PostUser";
 import { Suspense } from "react";
-import { getPost } from "@/lib/data";
+// import { getPost } from "@/lib/data";
 
-// const getPost = async (slug) => {
-//   try {
-//     const res = await fetch(`https://jsonplaceholder.typicode.com/posts/1`);
-//     if (!res.ok) {
-//       throw new Error("Something went wrong");
-//     }
-//     return res.json();
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
+const getPost = async (slug) => {
+  try {
+    const res = await fetch(`http://localhost:3000/api/blog/${slug}`, {
+      cache: "no-store",
+    });
+    if (!res.ok) {
+      throw new Error("Something went wrong");
+    }
+    return res.json();
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 export const generateMetadata = async ({ params }) => {
   const { slug } = params;
+  console.log(slug);
   const post = await getPost(slug);
 
   return {
