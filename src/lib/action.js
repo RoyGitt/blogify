@@ -61,11 +61,15 @@ export const registerUser = async (prevState, formData) => {
   }
 };
 
-export const login = async (formData) => {
+export const login = async (prevState, formData) => {
   const { email, password } = Object.fromEntries(formData);
   try {
     await signIn("credentials", { email, password });
   } catch (error) {
+    console.log(error.message);
+    if (error.message.includes("Credentials")) {
+      return { error: "Invalid Credentials" };
+    }
     return { error: "Failed to login" };
   }
 };
