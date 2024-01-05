@@ -4,6 +4,8 @@ import { useState } from "react";
 import styles from "./links.module.css";
 import NavLink from "./navlink/Navlink";
 import Image from "next/image";
+import { handleLogout } from "@/lib/action";
+import { useRouter } from "next/navigation";
 
 const links = [
   {
@@ -27,6 +29,8 @@ const links = [
 const Links = ({ session }) => {
   const [open, setOpen] = useState(false);
 
+  const router = useRouter();
+
   return (
     <div className={styles.container}>
       <div className={styles.links}>
@@ -35,9 +39,20 @@ const Links = ({ session }) => {
         ))}
 
         <NavLink item={{ title: "Admin", path: "/admin" }} />
-        <form>
-          <button className={styles.logout}>Logout</button>
-        </form>
+        {session ? (
+          <form action={handleLogout}>
+            <button className={styles.logout}>Logout</button>
+          </form>
+        ) : (
+          <button
+            className={styles.login}
+            onClick={() => {
+              router.push("/login");
+            }}
+          >
+            Login
+          </button>
+        )}
       </div>
       <Image
         className={styles.menuButton}
