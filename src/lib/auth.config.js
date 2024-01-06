@@ -30,6 +30,9 @@ export const authConfig = {
       if (isOnAdminPanel && !user?.isAdmin) {
         return false;
       }
+      if (isOnBlogPage && !user) {
+        return Response.redirect(new URL("/login", request.nextUrl));
+      }
 
       if (isOnLoginPage && user) {
         return Response.redirect(new URL("/", request.nextUrl));

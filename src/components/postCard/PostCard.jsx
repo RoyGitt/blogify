@@ -11,7 +11,7 @@ const PostCard = ({ post }) => {
             src={
               post.img
                 ? post.img
-                : "https://images.pexels.com/photos/19551880/pexels-photo-19551880/free-photo-of-cute-dog-in-christmas-sweater-and-hat.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                : "https://images.pexels.com/photos/577585/pexels-photo-577585.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
             }
             alt=""
             fill
@@ -20,12 +20,11 @@ const PostCard = ({ post }) => {
         </div>
 
         <span className={styles.date}>
-          {post.createdAt?.toString().slice(4, 16)}
+          {post.createdAt?.toString().slice(0, 10)}
         </span>
       </div>
       <div className={styles.bottom}>
         <h1 className={styles.title}>{post.title}</h1>
-        <p className={styles.desc}>{post.body}</p>
         <Link className={styles.link} href={`/blog/${post.slug}`}>
           READ MORE
         </Link>

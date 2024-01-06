@@ -42,7 +42,7 @@ const SinglePostPage = async ({ params, searchParams }) => {
           src={
             post?.img
               ? post.img
-              : "https://images.pexels.com/photos/19551880/pexels-photo-19551880/free-photo-of-cute-dog-in-christmas-sweater-and-hat.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+              : "https://images.pexels.com/photos/577585/pexels-photo-577585.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
           }
           alt=""
           fill
@@ -54,16 +54,14 @@ const SinglePostPage = async ({ params, searchParams }) => {
         <h1 className={styles.title}>{post.title}</h1>
         <div className={styles.detail}>
           <div className={styles.detailText}>
-            <span className={styles.detailTitle}>Published</span>
-            <span className={styles.detailValue}>
-              <Suspense fallback={<p>Loading</p>}>
-                <PostUser userId={post.userId} />
-              </Suspense>
-
-              {post.createdAt
-                ? post.createdAt.toString().slice(4, 16)
-                : new Date().toString().slice(4, 16)}
-            </span>
+            <Suspense fallback={<p>Loading</p>}>
+              <PostUser userId={post.userId} />
+            </Suspense>
+            {post.createdAt && (
+              <p className={styles.time}>
+                {post.createdAt.toString().slice(0, 10)}
+              </p>
+            )}
           </div>
         </div>
         <div className={styles.content}>{post.desc}</div>

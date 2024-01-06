@@ -22,3 +22,20 @@
   border: none;
   border-radius: 5px;
 }
+
+.githubLogin {
+  display: flex;
+  border: none;
+  border-radius: 5px;
+}
+
+.githubLogin button {
+  flex: 1;
+  padding: 20px;
+  cursor: pointer;
+  background-color: #0d0c22;
+  color: var(--textColor);
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+}
