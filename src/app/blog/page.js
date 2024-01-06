@@ -14,7 +14,11 @@ const getPosts = async () => {
     // const res = await fetch("https://jsonplaceholder.typicode.com/posts", {
     //   cache: "no-store",
     //     });
-    const res = await fetch("/api/blog", {
+    const apiBaseUrl =
+      process.env.NODE_ENV === "production"
+        ? "https://blogify-lao6.vercel.app/api/blog"
+        : "http://localhost:3000/api/blog";
+    const res = await fetch(`${apiBaseUrl}`, {
       next: { revalidate: 3600 }, //for revalidating
     });
     if (!res.ok) {
