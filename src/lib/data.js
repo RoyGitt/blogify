@@ -39,4 +39,3 @@ export const getUser = async (id) => {
     console.log(error.message);
   }
 };
-
