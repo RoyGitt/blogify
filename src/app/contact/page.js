@@ -29,7 +29,7 @@ const ContactPage = () => {
       <HydrationNoSSR />
       <p suppressHydrationWarning>{a}</p> */}
       <div className={styles.imgContainer}>
-        <Image src="/contact.png" alt="" fill className={styles.img} />
+        <Image src="/contact.svg" alt="" fill className={styles.img} />
       </div>
       <div className={styles.formContainer}>
         <form action="" className={styles.form}>
