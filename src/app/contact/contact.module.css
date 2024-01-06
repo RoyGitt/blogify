@@ -44,6 +44,18 @@
   cursor: pointer;
 }
 
+.success {
+  color: #2ecc71;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.error {
+  color: #d35400;
+  text-align: center;
+  margin-top: 20px;
+}
+
 @media (max-width: 768px) {
   .container {
     flex-direction: column;

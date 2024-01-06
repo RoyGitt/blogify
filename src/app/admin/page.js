@@ -8,7 +8,6 @@ import AdminUserForm from "@/components/adminUserForm/AdminUserForm";
 
 const AdminPage = async () => {
   const session = await auth();
-  console.log(session);
 
   return (
     <div className={styles.container}>

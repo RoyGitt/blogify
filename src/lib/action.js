@@ -1,7 +1,7 @@
 "use server";
 
 import { NextResponse } from "next/server";
-import { Post, User } from "./models";
+import { Message, Post, User } from "./models";
 import { connectDb } from "./db";
 import { revalidatePath } from "next/cache";
 import { signIn, signOut } from "./auth";
@@ -37,7 +37,6 @@ export const deletePost = async (formData) => {
 export const registerUser = async (prevState, formData) => {
   const { username, email, password, passwordRepeat } =
     Object.fromEntries(formData);
-  console.log(username, email, password, passwordRepeat);
   if (password !== passwordRepeat) {
     return { error: "Passwords do not match!" };
   }
@@ -57,7 +56,6 @@ export const registerUser = async (prevState, formData) => {
     newUser.save();
     return { success: true };
   } catch (error) {
-    console.log(error.message);
     return { error: "Failed to register user!" };
   }
 };
@@ -98,7 +96,6 @@ export const addUser = async (prevState, formData) => {
 
     return { success: true };
   } catch (error) {
-    console.log(error.message);
     return { error: "Failed to register user!" };
   }
 };
@@ -109,7 +106,6 @@ export const deleteUser = async (formData) => {
     await User.findByIdAndDelete(id);
     revalidatePath("/admin");
   } catch (error) {
-    console.log("Unable to delete the user");
     throw error;
   }
 };
@@ -132,4 +128,25 @@ export const handleGithubLogin = async () => {
 
 export const handleLogout = async () => {
   await signOut();
+};
+
+export const sendMessage = async (prevState, formData) => {
+  const { name, email, phone, message } = Object.fromEntries(formData);
+
+  try {
+    await connectDb();
+
+    const messageAlreadySent = await Message.findOne({ email });
+    if (messageAlreadySent) {
+      return {
+        success: "Message already sent, kindly wait for it to be seen 😎",
+      };
+    }
+
+    const newMessage = await Message({ name, email, phone, message });
+    newMessage.save();
+    return { success: "Successfully sent the message 😁" };
+  } catch (error) {
+    return { error: "Failed to send the message 🥲" };
+  }
 };

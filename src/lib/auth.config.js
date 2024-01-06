@@ -20,7 +20,6 @@ export const authConfig = {
     },
 
     authorized({ auth, request }) {
-      console.log(auth);
 
       const user = auth?.user;
       const isOnAdminPanel = request.nextUrl?.pathname.startsWith("/admin");

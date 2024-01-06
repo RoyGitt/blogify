@@ -9,7 +9,6 @@ export const getPosts = async () => {
     return posts;
   } catch (error) {
     console.log(error.message);
-    console.log("Failed to fetch posts");
   }
 };
 
@@ -19,7 +18,6 @@ export const getPost = async (slug) => {
     return await Post.findOne({ slug });
   } catch (error) {
     console.log(error.message);
-    console.log("Failed to fetch post");
   }
 };
 
@@ -30,7 +28,6 @@ export const getUsers = async (id) => {
     return await User.find();
   } catch (error) {
     console.log(error.message);
-    console.log("Failed to fetch the users");
   }
 };
 
@@ -40,6 +37,5 @@ export const getUser = async (id) => {
     return await User.findById(id);
   } catch (error) {
     console.log(error.message);
-    console.log("Failed to fetch the user");
   }
 };

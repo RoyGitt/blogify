@@ -7,7 +7,6 @@ export const metadata = {
     "We create digital ideas that are bigger, bolder, braver and better.",
 };
 const AboutPage = () => {
-  // console.log("lets check where it works")
   return (
     <div className={styles.container}>
       <div className={styles.textContainer}>
