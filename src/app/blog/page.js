@@ -14,7 +14,7 @@ const getPosts = async () => {
     // const res = await fetch("https://jsonplaceholder.typicode.com/posts", {
     //   cache: "no-store",
     //     });
-    const res = await fetch("http://localhost:3000/api/blog", {
+    const res = await fetch("/api/blog", {
       next: { revalidate: 3600 }, //for revalidating
     });
     if (!res.ok) {

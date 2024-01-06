@@ -6,7 +6,7 @@ import { Suspense } from "react";
 
 const getPost = async (slug) => {
   try {
-    const res = await fetch(`http://localhost:3000/api/blog/${slug}`, {
+    const res = await fetch(`/api/blog/${slug}`, {
       cache: "no-store",
     });
     if (!res.ok) {
@@ -34,7 +34,6 @@ const SinglePostPage = async ({ params, searchParams }) => {
 
   const post = await getPost(slug);
   // console.log(searchParams);
-  console.log(post.img);
   return (
     <div className={styles.container}>
       <div className={styles.imgContainer}>
