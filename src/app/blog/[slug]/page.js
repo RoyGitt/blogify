@@ -34,7 +34,7 @@ const SinglePostPage = async ({ params, searchParams }) => {
 
   const post = await getPost(slug);
   // console.log(searchParams);
-
+  console.log(post.img);
   return (
     <div className={styles.container}>
       <div className={styles.imgContainer}>

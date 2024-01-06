@@ -8,10 +8,10 @@ import { signIn, signOut } from "./auth";
 import bcrypt from "bcrypt";
 
 export const addPost = async (prevState, formData) => {
-  const { title, desc, userId, slug } = Object.fromEntries(formData);
+  const { title, desc, userId, slug, img } = Object.fromEntries(formData);
   try {
     connectDb();
-    const newPost = await Post({ title, desc, userId, slug });
+    const newPost = await Post({ title, desc, userId, slug, img });
     await newPost.save();
     revalidatePath("/blog");
     revalidatePath("/admin");

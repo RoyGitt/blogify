@@ -6,6 +6,8 @@ import NavLink from "./navlink/Navlink";
 import Image from "next/image";
 import { handleLogout } from "@/lib/action";
 import { useRouter } from "next/navigation";
+import { MdOutlineMenuOpen } from "react-icons/md";
+import { MdClose } from "react-icons/md";
 
 const links = [
   {
@@ -57,16 +59,25 @@ const Links = ({ session }) => {
           </button>
         )}
       </div>
-      <Image
-        className={styles.menuButton}
-        src="/menu.png"
-        alt=""
-        width={30}
-        height={30}
-        onClick={() => setOpen((prev) => !prev)}
-      />
-      {open && (
-        <div className={styles.mobileLinks}>
+
+      {open ? (
+        <MdClose
+          onClick={() => setOpen((prev) => !prev)}
+          style={{ fontSize: 40 }}
+        />
+      ) : (
+        <MdOutlineMenuOpen
+          onClick={() => setOpen((prev) => !prev)}
+          style={{ fontSize: 40 }}
+          className={styles.menuButton}
+        />
+      )}
+
+      {true && (
+        <div
+          className={styles.mobileLinks}
+          style={{ transform: open ? "translateX(0%)" : "" }}
+        >
           {links.map((link) => (
             <NavLink item={link} key={link.title} onClickLink={setOpen} />
           ))}
