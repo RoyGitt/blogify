@@ -6,10 +6,9 @@ import { Suspense } from "react";
 
 const getPost = async (slug) => {
   const apiBaseUrl =
-    process.env.NODE_ENV === "production"
+    process.env.NEXT_ENV == "production"
       ? "https://blogify-lao6.vercel.app/api/blog"
       : "http://localhost:3000/api/blog";
-
   try {
     const res = await fetch(`${apiBaseUrl}${slug}`, {
       cache: "no-store",

@@ -15,9 +15,10 @@ const getPosts = async () => {
     //   cache: "no-store",
     //     });
     const apiBaseUrl =
-      process.env.NODE_ENV === "production"
+      process.env.NEXT_ENV == "production"
         ? "https://blogify-lao6.vercel.app/api/blog"
         : "http://localhost:3000/api/blog";
+
     const res = await fetch(`${apiBaseUrl}`, {
       next: { revalidate: 3600 }, //for revalidating
     });
