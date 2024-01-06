@@ -53,7 +53,7 @@ const ContactPage = () => {
           ></textarea>
           <button>Send</button>
         </form>
-        {state?.error && <p className={styles.success}>{state.error}</p>}
+        {state?.error && <p className={styles.error}>{state.error}</p>}
         {state?.success && <p className={styles.success}>{state.success}</p>}
       </div>
     </div>

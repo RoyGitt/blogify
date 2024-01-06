@@ -32,7 +32,7 @@ const RegisterForm = () => {
       <Link href="/login">
         Have an account? <b>Login</b>
       </Link>
-      {state?.error && <p>{state.error}</p>}
+      {state?.error && <p className={styles.error}>{state.error}</p>}
     </form>
   );
 };

@@ -4,7 +4,7 @@ import { addPost } from "@/lib/action";
 import styles from "./adminPostForm.module.css";
 import { useFormState } from "react-dom";
 
-const AdminPostForm = async ({ userId }) => {
+const AdminPostForm = ({ userId }) => {
   const [state, formAction] = useFormState(addPost, undefined);
 
   return (

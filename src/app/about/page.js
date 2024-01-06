@@ -10,10 +10,10 @@ const AboutPage = () => {
   return (
     <div className={styles.container}>
       <div className={styles.textContainer}>
-        <h2 className={styles.subtitle}>Hi, I'm Roy</h2>
+        <h2 className={styles.subtitle}>Hi, I&apos;m Roy</h2>
         <h1 className={styles.title}>THINK. DECIPHER. FORGE.</h1>
         <p className={styles.desc}>
-          Hey, I'm Arannyak Roy, I have de­veloped expe­rtise in creating
+          Hey, I&apos;m Arannyak Roy, I have de­veloped expe­rtise in creating
           compelling and inte­ractive web applications using React and Ne­xt.js.
           Through my experience­s.
         </p>

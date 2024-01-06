@@ -5,7 +5,7 @@ const Footer = () => {
     <div className={styles.container}>
       <div className={styles.logo}>Roy | Arannyak</div>
       <div className={styles.text}>
-        I won't claim my rights unless someone copyright strike me
+        I won&apos;t claim my rights unless someone copyright strike me
       </div>
     </div>
   );

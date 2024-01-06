@@ -15,13 +15,13 @@ const LoginForm = () => {
         <input type="password" placeholder="Password" name="password" />
 
         <button>Login</button>
-        {state?.error && <p>{state.error}</p>}
+        {state?.error && <p className={styles.error}>{state.error}</p>}
       </form>
       <form action={handleGithubLogin} className={styles.githubLogin}>
         <button className={styles.githubBtn}>Login with Github</button>
       </form>
       <Link href="/register">
-        Don't have an an account? <b>Sign Up</b>
+        Don&apos;t have an an account? <b>Sign Up</b>
       </Link>
     </>
   );
