@@ -10,7 +10,7 @@ const getPost = async (slug) => {
       ? "https://blogify-lao6.vercel.app/api/blog"
       : "http://localhost:3000/api/blog";
   try {
-    const res = await fetch(`${apiBaseUrl}${slug}`, {
+    const res = await fetch(`${apiBaseUrl}/${slug}`, {
       cache: "no-store",
     });
     if (!res.ok) {
